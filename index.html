@@ -6,535 +6,535 @@
   <meta name="description" content="Tudo Novo Italínea — Móveis Planejados em Porto Alegre. Solicite seu orçamento gratuito.">
   <meta name="theme-color" content="#1B5092">
   <title>Tudo Novo | Móveis Planejados Italínea — Porto Alegre</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ════════════════════════════════
-       DESIGN TOKENS — Italínea Blue
-    ════════════════════════════════ */
-    :root {
-      --blue-deep:    #0E3268;
-      --blue:         #1B5092;
-      --blue-mid:     #2562B4;
-      --blue-light:   #4A90D9;
-      --blue-pale:    #D6E4F7;
-      --blue-ghost:   #EEF4FB;
-      --white:        #FFFFFF;
-      --off-white:    #F6F9FE;
-      --text-dark:    #0D1B3E;
-      --text-mid:     #3A4F70;
-      --text-muted:   #6B7F9E;
-      --border:       #D0DCF0;
-      --green-wa:     #25D366;
-
-      --radius-sm: 8px;
-      --radius:    14px;
-      --radius-lg: 22px;
-      --trans: 0.26s cubic-bezier(0.4,0,0.2,1);
-      --shadow-sm: 0 2px 12px rgba(27,80,146,0.1);
-      --shadow:    0 6px 32px rgba(27,80,146,0.15);
-      --shadow-lg: 0 16px 64px rgba(27,80,146,0.2);
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       TOKENS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    :root{
+      --blue:      #1B5092;
+      --blue-d:    #0D3268;
+      --blue-m:    #2562B4;
+      --blue-l:    #4A8FD4;
+      --blue-gl:   rgba(27,80,146,0.08);
+      --white:     #FFFFFF;
+      --off:       #F4F8FE;
+      --text:      #0D1B3E;
+      --muted:     #5A6E90;
+      --border:    #D0DCF0;
+      --green:     #25D366;
+      --r:         12px;
+      --r-lg:      20px;
+      --t:         0.28s cubic-bezier(.4,0,.2,1);
     }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    img{max-width:100%;height:auto;display:block}
+    a{text-decoration:none;color:inherit}
+    button{cursor:pointer;font-family:inherit;border:none;background:none}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--white);
-      color: var(--text-dark);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    img  { max-width: 100%; height: auto; display: block; }
-    a    { text-decoration: none; color: inherit; }
-    button { cursor: pointer; font-family: inherit; border: none; background: none; }
-
-    /* ════════════════════════════════
-       NAVEGAÇÃO
-    ════════════════════════════════ */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: var(--blue);
-      height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 20px;
-      box-shadow: 0 2px 16px rgba(14,50,104,0.25);
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NAV — compacta, mobile first
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:200;
+      height:56px;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 16px;
+      background:var(--blue);
+      box-shadow:0 2px 20px rgba(13,50,104,.35);
     }
 
-    /* Logo — quando receber o arquivo, substitua por:
-       <img src="assets/logo-tudonovo.png" alt="Tudo Novo Italínea" height="38">  */
-    .nav-logo {
-      display: flex; align-items: center; gap: 12px;
+    /* Logo */
+    .nav-logo{display:flex;align-items:center;height:100%}
+    .logo-img{
+      height:36px;width:auto;
+      /* se a logo vier com fundo transparente e texto branco, não precisa de filtro.
+         Se vier com fundo preto, descomente a linha abaixo:
+         filter: brightness(0) invert(1); */
     }
-    .logo-img {
-      height: 42px;
-      /* imagem com fundo transparente, em branco */
-      filter: brightness(0) invert(1);
+    /* fallback texto — remova quando colocar a imagem */
+    .logo-txt{
+      display:flex;flex-direction:column;line-height:1;
     }
-    .logo-fallback {
-      display: flex; flex-direction: column;
+    .logo-txt span:first-child{
+      font-family:'Playfair Display',serif;font-size:16px;font-weight:700;
+      color:#fff;letter-spacing:.08em;text-transform:uppercase;
     }
-    .logo-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px; font-weight: 700; color: var(--white);
-      letter-spacing: 0.05em; text-transform: uppercase; line-height: 1;
-    }
-    .logo-tag {
-      font-size: 8px; font-weight: 500; color: rgba(255,255,255,0.65);
-      letter-spacing: 0.2em; text-transform: uppercase; margin-top: 3px;
+    .logo-txt span:last-child{
+      font-size:8px;font-weight:500;color:rgba(255,255,255,.55);
+      letter-spacing:.2em;text-transform:uppercase;margin-top:2px;
     }
 
-    .nav-links { display: flex; align-items: center; gap: 6px; }
-
-    .nav-link {
-      font-size: 13px; font-weight: 500;
-      color: rgba(255,255,255,0.75);
-      padding: 10px 14px; min-height: 40px;
-      border-radius: var(--radius-sm);
-      display: inline-flex; align-items: center; gap: 6px;
-      transition: var(--trans);
+    /* Nav buttons */
+    .nav-actions{display:flex;align-items:center;gap:6px}
+    .nav-site{
+      font-size:12px;font-weight:500;color:rgba(255,255,255,.75);
+      padding:8px 12px;min-height:38px;border-radius:8px;
+      display:inline-flex;align-items:center;gap:5px;
+      border:1px solid rgba(255,255,255,.18);
+      transition:var(--t);white-space:nowrap;
     }
-    .nav-link:hover { color: var(--white); background: rgba(255,255,255,0.1); }
-
-    .nav-wa {
-      background: var(--green-wa); color: var(--white);
-      font-size: 13px; font-weight: 600;
-      padding: 10px 14px; min-height: 40px;
-      border-radius: var(--radius-sm);
-      display: inline-flex; align-items: center; gap: 6px;
-      transition: var(--trans);
+    .nav-site:hover{color:#fff;background:rgba(255,255,255,.1)}
+    .nav-wa{
+      font-size:12px;font-weight:600;color:#fff;
+      padding:8px 12px;min-height:38px;border-radius:8px;
+      background:var(--green);
+      display:inline-flex;align-items:center;gap:5px;
+      transition:var(--t);white-space:nowrap;
     }
-    .nav-wa:hover { background: #1ec45c; }
+    .nav-wa:hover{background:#1ec45c}
+    /* No mobile muito pequeno: esconde texto do primeiro botão */
+    @media(max-width:380px){
+      .nav-site .nav-txt{display:none}
+      .nav-wa  .nav-txt{display:none}
+    }
 
-    /* ════════════════════════════════
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        HERO
-    ════════════════════════════════ */
-    .hero {
-      min-height: 100svh;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 76px 20px 56px;
-      position: relative; overflow: hidden;
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .hero{
+      min-height:100svh;
+      display:flex;flex-direction:column;justify-content:flex-end;
+      padding:72px 20px 48px;
+      position:relative;overflow:hidden;
     }
-
-    .hero-bg {
-      position: absolute; inset: 0;
+    .hero-bg{
+      position:absolute;inset:0;
       background-image:
-        linear-gradient(170deg,
-          rgba(14,50,104,0.45) 0%,
-          rgba(14,50,104,0.65) 40%,
-          rgba(14,50,104,0.93) 100%),
+        linear-gradient(165deg,rgba(13,50,104,.3) 0%,rgba(13,50,104,.72) 50%,rgba(13,50,104,.97) 100%),
         url('https://tudonovomoveis.com.br/_images/home/banner/banner-01.webp');
-      background-size: cover;
-      background-position: center;
+      background-size:cover;background-position:center;
+      will-change:transform;
     }
 
-    .hero-content { position: relative; z-index: 1; max-width: 580px; }
-
-    .hero-pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
-      color: rgba(255,255,255,0.9);
-      font-size: 10.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
-      padding: 6px 14px; border-radius: 100px; margin-bottom: 24px;
+    /* Grade de pontos animada (efeito tech) */
+    .hero-grid{
+      position:absolute;inset:0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size:32px 32px;
+      animation:gridPan 20s linear infinite;
+      pointer-events:none;
     }
-    .pill-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: #74C0FF;
-      animation: blink 2.4s ease-in-out infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 8.5vw, 66px);
-      font-weight: 800; color: var(--white);
-      margin-bottom: 18px; line-height: 1.08;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: #9ECFFF;
+    @keyframes gridPan{
+      0%{background-position:0 0}
+      100%{background-position:32px 32px}
     }
 
-    .hero-sub {
-      font-size: 16px; color: rgba(255,255,255,0.75);
-      margin-bottom: 36px; line-height: 1.75; max-width: 440px;
+    /* Brilho animado no topo */
+    .hero-glow{
+      position:absolute;top:-20%;left:50%;
+      width:600px;height:400px;
+      background:radial-gradient(ellipse,rgba(74,143,212,.25) 0%,transparent 70%);
+      transform:translateX(-50%);
+      animation:glowPulse 4s ease-in-out infinite;
+      pointer-events:none;
+    }
+    @keyframes glowPulse{
+      0%,100%{opacity:.6;transform:translateX(-50%) scale(1)}
+      50%{opacity:1;transform:translateX(-50%) scale(1.15)}
     }
 
-    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-content{position:relative;z-index:1;max-width:520px}
 
-    .btn-white {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--white); color: var(--blue);
-      font-size: 14px; font-weight: 700;
-      padding: 14px 26px; border-radius: var(--radius);
-      min-height: 50px; transition: var(--trans);
+    /* Localização — pequena e sutil */
+    .hero-loc{
+      display:inline-flex;align-items:center;gap:6px;
+      font-size:11px;font-weight:600;color:rgba(255,255,255,.7);
+      letter-spacing:.18em;text-transform:uppercase;
+      margin-bottom:20px;
+      /* entrada animada */
+      opacity:0;transform:translateY(12px);
+      animation:fadeUp .6s .1s ease forwards;
     }
-    .btn-white:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.2); }
+    .hero-loc svg{color:#74C0FF;flex-shrink:0}
 
-    .btn-outline-white {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--white);
-      font-size: 14px; font-weight: 500;
-      padding: 14px 22px; border-radius: var(--radius);
-      min-height: 50px; border: 1.5px solid rgba(255,255,255,0.35);
-      transition: var(--trans);
+    .hero h1{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(36px,9vw,64px);
+      font-weight:800;color:#fff;
+      line-height:1.08;margin-bottom:16px;
+      opacity:0;transform:translateY(20px);
+      animation:fadeUp .7s .25s ease forwards;
     }
-    .btn-outline-white:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); }
-
-    /* ════════════════════════════════
-       SEÇÕES GENÉRICAS
-    ════════════════════════════════ */
-    .section { padding: 72px 20px; }
-    .container { max-width: 960px; margin: 0 auto; }
-
-    .eyebrow {
-      font-size: 10.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--blue-mid); margin-bottom: 12px;
-      display: flex; align-items: center; gap: 10px;
+    .hero h1 em{
+      font-style:italic;
+      background:linear-gradient(90deg,#74C0FF,#AADDFF);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;
     }
-    .eyebrow::before { content:''; display:block; width:22px; height:2px; background: var(--blue-mid); border-radius:2px; }
-    .eyebrow.white { color: rgba(255,255,255,0.7); }
-    .eyebrow.white::before { background: rgba(255,255,255,0.5); }
 
-    .sec-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 5.5vw, 46px); font-weight: 700;
-      color: var(--text-dark); margin-bottom: 12px; line-height: 1.15;
+    .hero-sub{
+      font-size:15px;color:rgba(255,255,255,.72);
+      line-height:1.75;max-width:400px;margin-bottom:32px;
+      opacity:0;transform:translateY(16px);
+      animation:fadeUp .7s .4s ease forwards;
     }
-    .sec-title.white { color: var(--white); }
 
-    .sec-desc {
-      font-size: 15.5px; color: var(--text-muted); line-height: 1.75;
-      max-width: 480px; margin-bottom: 44px;
+    .hero-cta{
+      display:flex;flex-direction:column;gap:10px;
+      opacity:0;transform:translateY(14px);
+      animation:fadeUp .6s .55s ease forwards;
     }
-    .sec-desc.white { color: rgba(255,255,255,0.72); }
 
-    /* ════════════════════════════════
+    @keyframes fadeUp{
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .btn-primary{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      background:#fff;color:var(--blue);
+      font-size:15px;font-weight:700;
+      padding:15px 28px;border-radius:var(--r);min-height:52px;
+      transition:var(--t);position:relative;overflow:hidden;
+    }
+    /* Shimmer no botão principal */
+    .btn-primary::after{
+      content:'';position:absolute;top:0;left:-100%;
+      width:60%;height:100%;
+      background:linear-gradient(90deg,transparent,rgba(27,80,146,.12),transparent);
+      animation:shimmer 2.5s 1.5s ease-in-out infinite;
+    }
+    @keyframes shimmer{0%{left:-100%}100%{left:180%}}
+    .btn-primary:hover{background:var(--off);transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.25)}
+
+    .btn-ghost{
+      display:inline-flex;align-items:center;justify-content:center;gap:7px;
+      background:transparent;color:rgba(255,255,255,.85);
+      font-size:14px;font-weight:500;
+      padding:12px 20px;border-radius:var(--r);min-height:46px;
+      border:1.5px solid rgba(255,255,255,.25);
+      transition:var(--t);
+    }
+    .btn-ghost:hover{border-color:rgba(255,255,255,.6);color:#fff}
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       FORMULÁRIO — logo após o hero
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .form-sec{
+      background:linear-gradient(180deg,var(--blue-d) 0%,var(--blue) 100%);
+      padding:56px 20px 64px;
+      position:relative;overflow:hidden;
+    }
+    /* Decoração de linhas tech */
+    .form-sec::before{
+      content:'';position:absolute;inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+      background-size:40px 40px;
+      pointer-events:none;
+    }
+
+    .form-inner{max-width:540px;margin:0 auto;position:relative;z-index:1}
+
+    .form-eyebrow{
+      font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+      color:rgba(255,255,255,.5);margin-bottom:8px;
+      display:flex;align-items:center;gap:8px;
+    }
+    .form-eyebrow::before{content:'';display:block;width:18px;height:1.5px;background:rgba(255,255,255,.35);border-radius:2px}
+
+    .form-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(26px,6vw,38px);font-weight:700;color:#fff;
+      line-height:1.18;margin-bottom:10px;
+    }
+    .form-desc{
+      font-size:14px;color:rgba(255,255,255,.6);
+      line-height:1.7;margin-bottom:28px;
+    }
+
+    /* Card do formulário */
+    .form-card{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--r-lg);padding:28px 22px;
+      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+      /* Borda animada de brilho */
+      position:relative;overflow:hidden;
+    }
+    .form-card::before{
+      content:'';position:absolute;
+      top:-50%;left:-50%;width:200%;height:200%;
+      background:conic-gradient(transparent 0deg, rgba(74,143,212,.15) 60deg, transparent 120deg);
+      animation:borderSpin 6s linear infinite;
+      pointer-events:none;
+    }
+    @keyframes borderSpin{to{transform:rotate(360deg)}}
+    /* máscara para conter o efeito */
+    .form-card::after{
+      content:'';position:absolute;inset:1px;
+      background:linear-gradient(160deg,rgba(13,50,104,.92),rgba(9,35,78,.96));
+      border-radius:calc(var(--r-lg) - 1px);z-index:0;
+    }
+    .form-inner-z{position:relative;z-index:1}
+
+    .fg{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+    .fg:last-child{margin-bottom:0}
+
+    .fg label{
+      font-size:11.5px;font-weight:600;color:rgba(255,255,255,.55);
+      letter-spacing:.05em;
+    }
+    .fg input,.fg select,.fg textarea{
+      font-family:'Inter',sans-serif;font-size:15px;color:#fff;
+      background:rgba(255,255,255,.07);
+      border:1.5px solid rgba(255,255,255,.15);
+      border-radius:var(--r);padding:13px 16px;
+      min-height:50px;width:100%;outline:none;
+      transition:var(--t);-webkit-appearance:none;appearance:none;
+    }
+    .fg select{
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;background-position:right 14px center;padding-right:42px;
+      background-color:rgba(255,255,255,.07);
+    }
+    .fg select option{background:#0D3268;color:#fff}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{
+      border-color:rgba(74,143,212,.7);
+      background:rgba(255,255,255,.1);
+      box-shadow:0 0 0 3px rgba(74,143,212,.18);
+    }
+    .fg textarea{min-height:88px;resize:vertical;line-height:1.55}
+    .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.25)}
+
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:400px){.form-row{grid-template-columns:1fr}}
+
+    .btn-form{
+      width:100%;min-height:52px;margin-top:20px;
+      background:linear-gradient(135deg,#fff 0%,#E8F0FE 100%);
+      color:var(--blue);font-size:15px;font-weight:700;
+      border-radius:var(--r);padding:15px 24px;
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      transition:var(--t);position:relative;overflow:hidden;
+    }
+    .btn-form::after{
+      content:'';position:absolute;top:0;left:-100%;
+      width:60%;height:100%;
+      background:linear-gradient(90deg,transparent,rgba(27,80,146,.1),transparent);
+      animation:shimmer 2s 2s ease-in-out infinite;
+    }
+    .btn-form:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.35)}
+    .btn-form:active{transform:translateY(0)}
+
+    .form-note{
+      text-align:center;font-size:11px;color:rgba(255,255,255,.35);
+      margin-top:12px;display:flex;align-items:center;justify-content:center;gap:5px;
+    }
+
+    /* Sucesso */
+    .form-success{
+      display:none;text-align:center;padding:40px 20px;position:relative;z-index:1;
+    }
+    .success-circle{
+      width:72px;height:72px;border-radius:50%;
+      background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.2);
+      margin:0 auto 20px;display:flex;align-items:center;justify-content:center;
+      color:#6DFFA0;
+      animation:scaleIn .5s ease;
+    }
+    @keyframes scaleIn{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+    .form-success h3{
+      font-family:'Playfair Display',serif;font-size:24px;color:#fff;margin-bottom:10px;
+    }
+    .form-success p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7}
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        DIFERENCIAIS
-    ════════════════════════════════ */
-    .dif { background: var(--off-white); }
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .dif{background:var(--off);padding:64px 20px}
+    .container{max-width:960px;margin:0 auto}
 
-    .dif-grid {
-      display: grid; grid-template-columns: 1fr; gap: 16px;
+    .eyebrow{
+      font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+      color:var(--blue-m);margin-bottom:10px;
+      display:flex;align-items:center;gap:8px;
     }
-    @media(min-width:580px){ .dif-grid { grid-template-columns: repeat(3,1fr); } }
+    .eyebrow::before{content:'';display:block;width:18px;height:2px;background:var(--blue-m);border-radius:2px}
 
-    .dif-card {
-      background: var(--white); border: 1.5px solid var(--border);
-      border-radius: var(--radius-lg); padding: 28px 22px;
-      transition: var(--trans);
+    .sec-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(26px,5vw,42px);font-weight:700;color:var(--text);
+      margin-bottom:10px;line-height:1.18;
     }
-    .dif-card:hover {
-      border-color: var(--blue-light);
-      box-shadow: var(--shadow);
-      transform: translateY(-3px);
-    }
-
-    .dif-icon {
-      width: 48px; height: 48px; border-radius: var(--radius-sm);
-      background: var(--blue-pale);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--blue); margin-bottom: 16px;
-    }
-    .dif-card h3 {
-      font-size: 15.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;
-    }
-    .dif-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; }
-
-    /* ════════════════════════════════
-       FORMULÁRIO (FOCO PRINCIPAL)
-    ════════════════════════════════ */
-    .form-sec { background: var(--white); }
-
-    .form-split {
-      display: grid; grid-template-columns: 1fr;
-      gap: 48px; align-items: start;
-    }
-    @media(min-width:760px) {
-      .form-split { grid-template-columns: 1fr 1.2fr; }
+    .sec-desc{
+      font-size:15px;color:var(--muted);line-height:1.75;max-width:460px;margin-bottom:40px;
     }
 
-    .form-info-card {
-      background: var(--blue); color: var(--white);
-      border-radius: var(--radius-lg); padding: 36px 30px;
-    }
+    .dif-grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:580px){.dif-grid{grid-template-columns:repeat(3,1fr)}}
 
-    .form-info-card .eyebrow { color: rgba(255,255,255,0.65); margin-bottom: 16px; }
-    .form-info-card .eyebrow::before { background: rgba(255,255,255,0.4); }
+    .dif-card{
+      background:#fff;border:1.5px solid var(--border);border-radius:var(--r-lg);
+      padding:26px 20px;transition:var(--t);position:relative;overflow:hidden;
+    }
+    /* Linha de cor no topo */
+    .dif-card::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--blue-d),var(--blue-l));
+      transform:scaleX(0);transform-origin:left;
+      transition:transform .4s ease;
+    }
+    .dif-card:hover::before{transform:scaleX(1)}
+    .dif-card:hover{border-color:var(--blue-l);box-shadow:0 8px 32px rgba(27,80,146,.12);transform:translateY(-3px)}
 
-    .form-info-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(24px,4vw,34px); font-weight: 700; line-height: 1.2;
-      margin-bottom: 14px; color: var(--white);
+    .dif-icon{
+      width:46px;height:46px;border-radius:10px;
+      background:var(--blue-gl);color:var(--blue);
+      display:flex;align-items:center;justify-content:center;margin-bottom:14px;
     }
+    .dif-card h3{font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px}
+    .dif-card p{font-size:13px;color:var(--muted);line-height:1.65}
 
-    .form-info-desc {
-      font-size: 14.5px; color: rgba(255,255,255,0.75);
-      line-height: 1.75; margin-bottom: 32px;
-    }
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NÚMEROS com counter animation
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .trust{background:var(--blue-d);padding:64px 20px}
 
-    .form-info-list { display: flex; flex-direction: column; gap: 16px; }
+    .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+    @media(min-width:580px){.trust-grid{grid-template-columns:repeat(4,1fr)}}
 
-    .form-info-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: 13.5px; color: rgba(255,255,255,0.85); line-height: 1.55;
+    .trust-item{text-align:center}
+    .trust-num{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(36px,7vw,52px);font-weight:700;line-height:1;
+      color:#74C0FF;
     }
-    .form-info-icon {
-      width: 34px; height: 34px; border-radius: var(--radius-sm);
-      background: rgba(255,255,255,0.12); flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      color: #9ECFFF;
-    }
-    .form-info-item strong { color: var(--white); display: block; font-size: 12px; margin-bottom: 2px; }
+    .trust-lbl{font-size:12px;color:rgba(255,255,255,.5);margin-top:7px;line-height:1.45}
 
-    .form-box {
-      background: var(--off-white); border-radius: var(--radius-lg);
-      padding: 36px 28px; border: 1.5px solid var(--border);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .form-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-    @media(min-width:480px){
-      .form-grid { grid-template-columns: 1fr 1fr; }
-      .form-full { grid-column: 1/-1; }
-    }
-
-    .fg { display: flex; flex-direction: column; gap: 6px; }
-    .fg label {
-      font-size: 12.5px; font-weight: 600; color: var(--text-mid);
-      letter-spacing: 0.02em;
-    }
-    .fg input, .fg select, .fg textarea {
-      font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-dark);
-      background: var(--white); border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm); padding: 12px 16px;
-      min-height: 50px; width: 100%; outline: none;
-      transition: var(--trans); -webkit-appearance: none; appearance: none;
-    }
-    .fg select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7F9E' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 14px center; background-color: var(--white);
-      padding-right: 44px;
-    }
-    .fg input:focus, .fg select:focus, .fg textarea:focus {
-      border-color: var(--blue-mid); box-shadow: 0 0 0 3px rgba(37,98,180,0.14);
-    }
-    .fg textarea { min-height: 96px; resize: vertical; line-height: 1.55; }
-    .fg input::placeholder, .fg textarea::placeholder { color: #b0bfd4; }
-
-    .btn-form {
-      width: 100%; min-height: 52px;
-      background: var(--blue); color: var(--white);
-      font-size: 15px; font-weight: 700;
-      border-radius: var(--radius); padding: 15px 24px;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      transition: var(--trans); letter-spacing: 0.02em;
-    }
-    .btn-form:hover { background: var(--blue-deep); transform: translateY(-2px); box-shadow: var(--shadow); }
-    .btn-form:active { transform: translateY(0); }
-
-    .form-note {
-      text-align: center; font-size: 11.5px; color: var(--text-muted);
-      margin-top: 14px; display: flex; align-items: center; justify-content: center; gap: 5px;
-    }
-
-    /* Confirmação de sucesso */
-    .form-success {
-      display: none; text-align: center; padding: 32px 20px;
-    }
-    .form-success .success-icon {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: #EEF9F2; margin: 0 auto 16px;
-      display: flex; align-items: center; justify-content: center;
-      color: #16a34a;
-    }
-    .form-success h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px; color: var(--text-dark); margin-bottom: 8px;
-    }
-    .form-success p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
-
-    /* ════════════════════════════════
-       NÚMEROS
-    ════════════════════════════════ */
-    .trust { background: var(--blue); }
-
-    .trust-grid {
-      display: grid; grid-template-columns: repeat(2,1fr); gap: 32px;
-    }
-    @media(min-width:580px){ .trust-grid { grid-template-columns: repeat(4,1fr); } }
-
-    .trust-item { text-align: center; }
-    .trust-num {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(36px,7vw,52px); font-weight: 700; line-height: 1;
-      color: #9ECFFF;
-    }
-    .trust-lbl { font-size: 12.5px; color: rgba(255,255,255,0.65); margin-top: 7px; line-height: 1.4; }
-
-    /* ════════════════════════════════
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        FOOTER
-    ════════════════════════════════ */
-    .footer {
-      background: var(--blue-deep);
-      padding: 60px 20px 32px;
-    }
-    .footer-inner { max-width: 960px; margin: 0 auto; }
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .footer{background:#071D44;padding:52px 20px 28px}
+    .footer-inner{max-width:960px;margin:0 auto}
 
-    .footer-top {
-      display: grid; grid-template-columns: 1fr; gap: 44px; margin-bottom: 48px;
-    }
-    @media(min-width:640px){ .footer-top { grid-template-columns: 1.5fr 1fr 1fr; } }
+    .footer-top{display:grid;grid-template-columns:1fr;gap:40px;margin-bottom:44px}
+    @media(min-width:640px){.footer-top{grid-template-columns:1.5fr 1fr 1fr}}
 
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 19px; font-weight: 700; color: var(--white);
-      letter-spacing: 0.05em; text-transform: uppercase;
+    .f-logo-name{
+      font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;
+      letter-spacing:.06em;text-transform:uppercase;
     }
-    .footer-logo-tag {
-      font-size: 8.5px; font-weight: 500; color: rgba(255,255,255,0.45);
-      letter-spacing: 0.2em; text-transform: uppercase; margin-top: 3px; display: block;
-    }
-    .footer-desc {
-      font-size: 13.5px; color: rgba(255,255,255,0.55);
-      line-height: 1.75; margin: 14px 0 20px; max-width: 280px;
-    }
+    .f-logo-sub{font-size:8px;color:rgba(255,255,255,.35);letter-spacing:.2em;text-transform:uppercase;margin-top:3px;display:block}
+    .f-desc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.75;margin:14px 0 20px;max-width:260px}
 
-    .socials { display: flex; gap: 9px; }
-    .social {
-      width: 38px; height: 38px; border-radius: var(--radius-sm);
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.5); transition: var(--trans);
+    .socials{display:flex;gap:8px}
+    .social{
+      width:36px;height:36px;border-radius:8px;
+      background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+      display:flex;align-items:center;justify-content:center;
+      color:rgba(255,255,255,.45);transition:var(--t);
     }
-    .social:hover { color: var(--white); background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25); }
+    .social:hover{color:#fff;background:rgba(255,255,255,.14)}
 
-    .footer-col h4 {
-      font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,0.4);
-      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 18px;
-    }
+    .f-col h4{font-size:10px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+    .f-row{display:flex;align-items:flex-start;gap:9px;margin-bottom:11px;font-size:13px;color:rgba(255,255,255,.5);line-height:1.55}
+    .f-row svg{color:#74B4FF;flex-shrink:0;margin-top:2px}
+    .f-row a{color:rgba(255,255,255,.5);transition:color var(--t)}
+    .f-row a:hover{color:#fff}
 
-    .info-row {
-      display: flex; align-items: flex-start; gap: 10px;
-      margin-bottom: 13px; font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.55;
-    }
-    .info-row svg { color: #74B4FF; flex-shrink: 0; margin-top: 2px; }
-    .info-row a { color: rgba(255,255,255,0.6); transition: color var(--trans); }
-    .info-row a:hover { color: var(--white); }
+    .f-divider{border:none;border-top:1px solid rgba(255,255,255,.07);margin-bottom:20px}
+    .f-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;color:rgba(255,255,255,.2)}
 
-    .footer-divider { border:none; border-top: 1px solid rgba(255,255,255,0.08); margin-bottom: 22px; }
-    .footer-bottom {
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
-      font-size: 11.5px; color: rgba(255,255,255,0.25);
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       WHATSAPP FLOAT
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .wa-float{
+      position:fixed;bottom:20px;right:16px;z-index:90;
+      width:54px;height:54px;border-radius:50%;
+      background:var(--green);color:#fff;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 4px 20px rgba(37,211,102,.45);
+      transition:var(--t);
     }
-    .badge-italinea {
-      display: inline-flex; align-items: center; gap: 5px;
-      font-size: 10.5px; color: rgba(255,255,255,0.25);
+    .wa-float:hover{transform:scale(1.12);box-shadow:0 8px 32px rgba(37,211,102,.6)}
+    .wa-ring{
+      position:absolute;inset:0;border-radius:50%;border:2px solid var(--green);
+      animation:ring 2.5s ease-out infinite;
     }
+    @keyframes ring{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.7);opacity:0}}
 
-    /* ════════════════════════════════
-       WHATSAPP FLUTUANTE
-    ════════════════════════════════ */
-    .wa-float {
-      position: fixed; bottom: 22px; right: 18px; z-index: 90;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: var(--green-wa);
-      display: flex; align-items: center; justify-content: center; color: var(--white);
-      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
-      transition: var(--trans);
-    }
-    .wa-float:hover { transform: scale(1.12); box-shadow: 0 8px 32px rgba(37,211,102,0.6); }
-    .wa-pulse {
-      position: absolute; inset: 0; border-radius: 50%;
-      background: var(--green-wa); animation: waPulse 2.5s ease-out infinite;
-    }
-    @keyframes waPulse { 0%{transform:scale(1);opacity:0.55} 100%{transform:scale(1.85);opacity:0} }
-
-    /* ════════════════════════════════
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        TOAST
-    ════════════════════════════════ */
-    .toast {
-      position: fixed; bottom: 88px; right: 18px; z-index: 200;
-      background: var(--blue-deep); border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius); padding: 13px 17px;
-      font-size: 13px; color: var(--white); max-width: 260px;
-      box-shadow: var(--shadow-lg);
-      transform: translateY(16px); opacity: 0; pointer-events: none;
-      transition: var(--trans);
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .toast{
+      position:fixed;bottom:84px;right:16px;z-index:300;
+      background:#0D3268;border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--r);padding:12px 16px;
+      font-size:13px;color:#fff;max-width:240px;
+      box-shadow:0 8px 32px rgba(0,0,0,.4);
+      transform:translateY(14px);opacity:0;pointer-events:none;
+      transition:var(--t);
     }
-    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.show{transform:translateY(0);opacity:1}
 
-    /* ════════════════════════════════
-       REVEAL ANIMATION
-    ════════════════════════════════ */
-    .reveal {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       REVEAL
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+    .rv.in{opacity:1;transform:translateY(0)}
+    @media(prefers-reduced-motion:reduce){
+      .rv{opacity:1;transform:none;transition:none}
+      .hero-grid,.hero-glow,.btn-primary::after,.btn-form::after,.form-card::before,.wa-ring{animation:none}
     }
-    .reveal.vis { opacity: 1; transform: translateY(0); }
-
-    @media(prefers-reduced-motion: reduce) {
-      .reveal { opacity:1; transform:none; transition:none; }
-      .pill-dot, .wa-pulse { animation: none; }
-    }
-
-    /* ════════════════════════════════
-       UTILITÁRIOS
-    ════════════════════════════════ */
-    .divider-wave {
-      width: 100%; overflow: hidden; line-height: 0;
-    }
-    .divider-wave svg { display: block; width: 100%; }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════ NAVEGAÇÃO ═══════════════ -->
+<!-- ══════════ NAV ══════════ -->
 <nav class="nav" role="navigation" aria-label="Navegação principal">
+
   <div class="nav-logo">
     <!--
-      LOGO: quando receber o arquivo PNG com fundo transparente, substitua por:
+      Logo com fundo transparente — salve o arquivo em assets/logo-tudonovo.png
+      e substitua o bloco .logo-txt abaixo por:
       <img src="assets/logo-tudonovo.png" alt="Tudo Novo Italínea" class="logo-img">
-
-      Por enquanto usando texto como fallback:
     -->
-    <div class="logo-fallback">
-      <span class="logo-name">Tudo Novo</span>
-      <span class="logo-tag">Italínea · Móveis Planejados</span>
+    <div class="logo-txt">
+      <span>Tudo Novo</span>
+      <span>Italínea · Móveis Planejados</span>
     </div>
   </div>
 
-  <div class="nav-links">
+  <div class="nav-actions">
     <a href="https://tudonovomoveis.com.br/ambientes/"
-       class="nav-link" target="_blank" rel="noopener noreferrer">
+       class="nav-site" target="_blank" rel="noopener noreferrer"
+       aria-label="Nosso site">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
         <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
       </svg>
-      Nosso site
+      <span class="nav-txt">Nosso site</span>
     </a>
-    <a href="https://wa.me/5551992681001?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Tudo%20Novo%20M%C3%B3veis%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Qual%20ambiente%20deseja%20planejar%3F"
-       class="nav-wa" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <a href="https://wa.me/5551992681001?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Tudo%20Novo%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Qual%20ambiente%20deseja%20planejar%3F"
+       class="nav-wa" target="_blank" rel="noopener noreferrer"
+       aria-label="Falar no WhatsApp">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
       </svg>
-      Entre em contato
+      <span class="nav-txt">Contato</span>
     </a>
   </div>
 </nav>
 
-<!-- ═══════════════ HERO ═══════════════ -->
+<!-- ══════════ HERO ══════════ -->
 <section class="hero" aria-label="Apresentação">
-  <div class="hero-bg" role="img" aria-label="Cozinha planejada Italínea"></div>
+  <div class="hero-bg" id="heroBg" role="img" aria-label="Ambiente de móveis planejados"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <div class="hero-pill">
-      <span class="pill-dot" aria-hidden="true"></span>
-      Revendedor Exclusivo Italínea · Porto Alegre
+    <div class="hero-loc" aria-label="Localização: Porto Alegre, RS">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+      Porto Alegre, RS
     </div>
 
     <h1>
@@ -545,19 +545,18 @@
 
     <p class="hero-sub">
       Móveis planejados com o padrão de qualidade Italínea,
-      projetados sob medida para cada espaço da sua casa.
-      Atendimento especializado em Porto Alegre, RS.
+      projetados para cada espaço da sua casa com atendimento dedicado.
     </p>
 
-    <div class="hero-ctas">
-      <a href="#orcamento" class="btn-white">
+    <div class="hero-cta">
+      <a href="#orcamento" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
           <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
           <rect x="9" y="3" width="6" height="4" rx="2"/>
         </svg>
         Solicitar Orçamento Grátis
       </a>
-      <a href="https://tudonovomoveis.com.br/ambientes/" class="btn-outline-white" target="_blank" rel="noopener noreferrer">
+      <a href="https://tudonovomoveis.com.br/ambientes/" class="btn-ghost" target="_blank" rel="noopener noreferrer">
         Ver Ambientes
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
           <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -567,226 +566,153 @@
   </div>
 </section>
 
-<!-- ═══════════════ DIFERENCIAIS ═══════════════ -->
-<section class="section dif" aria-labelledby="dif-title">
-  <div class="container">
-    <p class="eyebrow reveal">Por que nos escolher</p>
-    <h2 class="sec-title reveal" id="dif-title">Qualidade e dedicação<br>em cada projeto</h2>
-    <p class="sec-desc reveal">
-      Somos revendedores exclusivos Italínea, a maior fábrica de móveis
-      planejados da América Latina — trazendo esse padrão diretamente para a sua casa.
+<!-- ══════════ FORMULÁRIO (logo após hero) ══════════ -->
+<section class="form-sec" id="orcamento" aria-labelledby="form-title">
+  <div class="form-inner">
+
+    <p class="form-eyebrow rv">Orçamento Gratuito</p>
+    <h2 class="form-title rv" id="form-title">Seu projeto começa<br>com uma conversa.</h2>
+    <p class="form-desc rv">
+      Preencha e nossa equipe retorna em até 24h úteis
+      com a proposta ideal para o seu ambiente.
     </p>
 
+    <div class="form-card rv" style="transition-delay:.1s">
+      <div class="form-inner-z">
+        <form id="formOrcamento" novalidate>
+
+          <div class="form-row">
+            <div class="fg">
+              <label for="nome">Nome completo *</label>
+              <input type="text" id="nome" name="Nome Completo"
+                     placeholder="Seu nome" required autocomplete="name">
+            </div>
+            <div class="fg">
+              <label for="whatsapp">WhatsApp *</label>
+              <input type="tel" id="whatsapp" name="WhatsApp para Contato"
+                     placeholder="(51) 9 9999-9999" required autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="fg">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="E-mail do Cliente"
+                     placeholder="seu@email.com" autocomplete="email">
+            </div>
+            <div class="fg">
+              <label for="ambiente">Ambiente *</label>
+              <select id="ambiente" name="Ambiente de Interesse" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option>Cozinha</option>
+                <option>Dormitório / Suíte</option>
+                <option>Living / Sala</option>
+                <option>Closet</option>
+                <option>Home Office</option>
+                <option>Banheiro / Lavanderia</option>
+                <option>Espaços Comerciais</option>
+                <option>Studio</option>
+                <option>Casa Completa</option>
+                <option>Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="fg">
+            <label for="mensagem">Observações <span style="opacity:.5;font-weight:400">(opcional)</span></label>
+            <textarea id="mensagem" name="Observações sobre o Projeto"
+                      placeholder="Tamanho do espaço, estilo desejado, prazo..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-form" id="submitBtn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+              <rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12l2 2 4-4"/>
+            </svg>
+            Quero meu Orçamento Gratuito
+          </button>
+
+          <p class="form-note">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Dados protegidos. Sem spam.
+          </p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-circle" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <h3>Solicitação enviada!</h3>
+          <p>Nossa equipe entrará em contato em breve pelo WhatsApp ou e-mail informado.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ DIFERENCIAIS ══════════ -->
+<section class="dif" aria-labelledby="dif-title">
+  <div class="container">
+    <p class="eyebrow rv">Por que nos escolher</p>
+    <h2 class="sec-title rv" id="dif-title">Qualidade e dedicação<br>em cada projeto</h2>
+    <p class="sec-desc rv">Representamos a Italínea, maior fábrica de móveis planejados da América Latina, levando esse padrão diretamente para a sua casa.</p>
     <div class="dif-grid">
-      <div class="dif-card reveal">
+      <div class="dif-card rv">
         <div class="dif-icon" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
         </div>
         <h3>Padrão Italínea</h3>
-        <p>Materiais certificados, acabamentos premium e durabilidade garantida da maior fábrica de móveis planejados da América Latina.</p>
+        <p>Materiais certificados e acabamentos premium da maior fábrica de móveis planejados da América Latina.</p>
       </div>
-
-      <div class="dif-card reveal" style="transition-delay:.1s">
+      <div class="dif-card rv" style="transition-delay:.1s">
         <div class="dif-icon" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
         </div>
-        <h3>Projeto Sob Medida</h3>
-        <p>Cada ambiente é planejado exclusivamente para o seu espaço, com design personalizado que respeita seu estilo e orçamento.</p>
+        <h3>Projeto Personalizado</h3>
+        <p>Cada ambiente é planejado exclusivamente para o seu espaço, com design que respeita seu estilo e orçamento.</p>
       </div>
-
-      <div class="dif-card reveal" style="transition-delay:.2s">
+      <div class="dif-card rv" style="transition-delay:.2s">
         <div class="dif-icon" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
           </svg>
         </div>
         <h3>Do Projeto à Entrega</h3>
-        <p>Acompanhamos cada etapa — projeto, produção e instalação — com atendimento dedicado até você estar 100% satisfeito.</p>
+        <p>Acompanhamos cada etapa — projeto, produção e instalação — com atendimento dedicado até sua total satisfação.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ FORMULÁRIO (FOCO PRINCIPAL) ═══════════════ -->
-<section class="section form-sec" id="orcamento" aria-labelledby="form-title">
+<!-- ══════════ NÚMEROS ══════════ -->
+<section class="trust" aria-labelledby="trust-label">
   <div class="container">
-    <div class="form-split">
-
-      <!-- COLUNA ESQUERDA: Info -->
-      <div class="form-info-card reveal">
-        <p class="eyebrow">Orçamento Gratuito</p>
-        <h2 class="form-info-title" id="form-title">
-          Seu ambiente<br>dos sonhos começa<br>aqui.
-        </h2>
-        <p class="form-info-desc">
-          Preencha o formulário ao lado e nossa equipe entrará em contato
-          em até 24h úteis com a proposta ideal para o seu projeto.
-        </p>
-
-        <div class="form-info-list">
-          <div class="form-info-item">
-            <div class="form-info-icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-              </svg>
-            </div>
-            <div>
-              <strong>Resposta em até 24h úteis</strong>
-              Nossa equipe retornará rapidamente com a proposta.
-            </div>
-          </div>
-          <div class="form-info-item">
-            <div class="form-info-icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <div>
-              <strong>Sem compromisso</strong>
-              Orçamento 100% gratuito e sem obrigação de contratação.
-            </div>
-          </div>
-          <div class="form-info-item">
-            <div class="form-info-icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <div>
-              <strong>Showroom em São Geraldo</strong>
-              Visite-nos: São Geraldo, Porto Alegre – RS
-            </div>
-          </div>
-          <div class="form-info-item">
-            <div class="form-info-icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>
-              </svg>
-            </div>
-            <div>
-              <strong>Financiamento ItalíneaCredi</strong>
-              Parcele seu projeto sem juros com condições especiais.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- COLUNA DIREITA: Formulário -->
-      <div class="reveal" style="transition-delay:.12s">
-        <div class="form-box">
-          <form id="formOrcamento" novalidate>
-            <div class="form-grid">
-
-              <div class="fg">
-                <label for="nome">Nome completo <span aria-hidden="true" style="color:#e55">*</span></label>
-                <input type="text" id="nome" name="Nome Completo"
-                       placeholder="Seu nome" required autocomplete="name" minlength="3">
-              </div>
-
-              <div class="fg">
-                <label for="whatsapp">WhatsApp <span aria-hidden="true" style="color:#e55">*</span></label>
-                <input type="tel" id="whatsapp" name="WhatsApp para Contato"
-                       placeholder="(51) 99999-9999" required autocomplete="tel">
-              </div>
-
-              <div class="fg">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="E-mail do Cliente"
-                       placeholder="seu@email.com" autocomplete="email">
-              </div>
-
-              <div class="fg">
-                <label for="ambiente">Ambiente de interesse <span aria-hidden="true" style="color:#e55">*</span></label>
-                <select id="ambiente" name="Ambiente de Interesse" required>
-                  <option value="" disabled selected>Selecione...</option>
-                  <option>Cozinha</option>
-                  <option>Dormitório / Suíte</option>
-                  <option>Living / Sala</option>
-                  <option>Closet</option>
-                  <option>Home Office</option>
-                  <option>Banheiro / Lavanderia</option>
-                  <option>Espaços Comerciais / Corporativo</option>
-                  <option>Studio</option>
-                  <option>Adega / Biblioteca</option>
-                  <option>Casa Completa</option>
-                  <option>Outro ambiente</option>
-                </select>
-              </div>
-
-              <div class="fg form-full">
-                <label for="mensagem">
-                  Detalhes do projeto
-                  <span style="font-weight:400;color:#b0bfd4"> (opcional)</span>
-                </label>
-                <textarea id="mensagem" name="Observações sobre o Projeto"
-                          placeholder="Tamanho aproximado do espaço, estilo desejado, prazo, outros detalhes..."></textarea>
-              </div>
-
-              <div class="form-full">
-                <button type="submit" class="btn-form" id="submitBtn">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
-                    <rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12l2 2 4-4"/>
-                  </svg>
-                  Quero meu Orçamento Gratuito
-                </button>
-                <p class="form-note">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                  </svg>
-                  Seus dados estão protegidos. Não compartilhamos com terceiros.
-                </p>
-              </div>
-
-            </div>
-          </form>
-
-          <!-- Tela de sucesso (aparece após envio) -->
-          <div class="form-success" id="formSuccess">
-            <div class="success-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
-              </svg>
-            </div>
-            <h3>Solicitação enviada!</h3>
-            <p>
-              Recebemos seus dados e já notificamos nossa equipe.<br>
-              Em breve entraremos em contato pelo WhatsApp ou e-mail informado.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ NÚMEROS ═══════════════ -->
-<section class="section trust" aria-labelledby="trust-title">
-  <div class="container">
-    <p class="eyebrow white reveal" style="justify-content:center;margin-bottom:44px;">
+    <p class="rv" id="trust-label" style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);text-align:center;margin-bottom:40px;">
       Números que comprovam
     </p>
     <div class="trust-grid">
-      <div class="trust-item reveal">
-        <div class="trust-num">+15</div>
+      <div class="trust-item rv">
+        <div class="trust-num" data-target="15" data-suffix="+">0</div>
         <div class="trust-lbl">anos de<br>experiência</div>
       </div>
-      <div class="trust-item reveal" style="transition-delay:.1s">
-        <div class="trust-num">+500</div>
+      <div class="trust-item rv" style="transition-delay:.1s">
+        <div class="trust-num" data-target="500" data-prefix="+" >0</div>
         <div class="trust-lbl">projetos<br>entregues</div>
       </div>
-      <div class="trust-item reveal" style="transition-delay:.2s">
+      <div class="trust-item rv" style="transition-delay:.2s">
         <div class="trust-num">5★</div>
         <div class="trust-lbl">avaliação<br>no Google</div>
       </div>
-      <div class="trust-item reveal" style="transition-delay:.3s">
+      <div class="trust-item rv" style="transition-delay:.3s">
         <div class="trust-num">0%</div>
         <div class="trust-lbl">juros<br>ItalíneaCredi</div>
       </div>
@@ -794,36 +720,30 @@
   </div>
 </section>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
+<!-- ══════════ FOOTER ══════════ -->
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div class="footer-top">
-
       <div>
-        <!-- Logo footer — mesma substituição do header -->
-        <div>
-          <div class="footer-logo">Tudo Novo</div>
-          <span class="footer-logo-tag">Italínea · Móveis Planejados</span>
-        </div>
-        <p class="footer-desc">
-          Revendedor exclusivo Italínea em Porto Alegre, RS. Transformamos ambientes
-          com projetos de móveis planejados de alta qualidade e design.
-        </p>
+        <!--
+          Footer logo — mesma imagem do header
+          <img src="assets/logo-tudonovo.png" alt="Tudo Novo Italínea" style="height:38px;filter:brightness(0) invert(1);margin-bottom:12px">
+        -->
+        <div class="f-logo-name">Tudo Novo</div>
+        <span class="f-logo-sub">Italínea · Móveis Planejados</span>
+        <p class="f-desc">Revendedor exclusivo Italínea em Porto Alegre, RS. Transformamos ambientes com projetos de móveis planejados de alta qualidade.</p>
         <div class="socials" aria-label="Redes sociais">
-          <a href="https://www.instagram.com/tudonovoitalinea/" class="social"
-             target="_blank" rel="noopener noreferrer" aria-label="Instagram @tudonovoitalinea">
+          <a href="https://www.instagram.com/tudonovoitalinea/" class="social" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
           </a>
-          <a href="https://www.facebook.com/tudonovomoveisitalinea/" class="social"
-             target="_blank" rel="noopener noreferrer" aria-label="Facebook Tudo Novo Móveis">
+          <a href="https://www.facebook.com/tudonovomoveisitalinea/" class="social" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
           </a>
-          <a href="https://wa.me/5551992681001" class="social"
-             target="_blank" rel="noopener noreferrer" aria-label="WhatsApp (51) 99268-1001">
+          <a href="https://wa.me/5551992681001" class="social" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
@@ -831,243 +751,252 @@
         </div>
       </div>
 
-      <div class="footer-col">
+      <div class="f-col">
         <h4>Contato</h4>
-        <div class="info-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <div class="f-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.68a19.79 19.79 0 01-3.07-8.67A2 2 0 012.32 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.14 6.14l1.28-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
           </svg>
           <a href="tel:+5551992681001">(51) 99268-1001</a>
         </div>
-        <div class="info-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          <a href="https://wa.me/5551992681001" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        </div>
-        <div class="info-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <div class="f-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
           </svg>
           <a href="mailto:tudonovomoveis@gmail.com">tudonovomoveis@gmail.com</a>
         </div>
-        <div class="info-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <div class="f-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
           </svg>
           <a href="https://tudonovomoveis.com.br" target="_blank" rel="noopener noreferrer">tudonovomoveis.com.br</a>
         </div>
       </div>
 
-      <div class="footer-col">
+      <div class="f-col">
         <h4>Localização & Horários</h4>
-        <div class="info-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <div class="f-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
           </svg>
           <span>São Geraldo<br>Porto Alegre – RS</span>
         </div>
-        <div class="info-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <div class="f-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
           </svg>
-          <span>
-            Seg – Sex: 9h às 18h<br>
-            Sábado: 9h às 13h<br>
-            <span style="font-size:12px;opacity:0.55">Domingo: fechado</span>
-          </span>
+          <span>Seg – Sex: 9h às 18h<br>Sábado: 9h às 13h</span>
         </div>
       </div>
-
     </div>
 
-    <hr class="footer-divider">
-
-    <div class="footer-bottom">
+    <hr class="f-divider">
+    <div class="f-bottom">
       <span>© 2024 Tudo Novo Móveis Planejados. Todos os direitos reservados.</span>
-      <div class="badge-italinea">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <span style="display:inline-flex;align-items:center;gap:4px">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
         Revendedor Exclusivo Italínea
-      </div>
+      </span>
     </div>
   </div>
 </footer>
 
-<!-- ═══════════════ WHATSAPP FLUTUANTE ═══════════════ -->
-<a href="https://wa.me/5551992681001?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Tudo%20Novo%20M%C3%B3veis%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Qual%20ambiente%20deseja%20planejar%3F"
-   class="wa-float" target="_blank" rel="noopener noreferrer"
-   aria-label="Falar com a Tudo Novo pelo WhatsApp">
-  <div class="wa-pulse" aria-hidden="true"></div>
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position:relative;z-index:1">
+<!-- WhatsApp float -->
+<a href="https://wa.me/5551992681001?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Qual%20ambiente%20deseja%20planejar%3F"
+   class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+  <div class="wa-ring" aria-hidden="true"></div>
+  <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position:relative;z-index:1">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
 </a>
 
-<!-- TOAST -->
 <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
 
-<!-- ═══════════════ SCRIPTS ═══════════════ -->
 <script>
-  /* --- Reveal on scroll --- */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+/* ── Parallax sutil no hero ── */
+const heroBg = document.getElementById('heroBg');
+window.addEventListener('scroll', () => {
+  if(window.innerWidth > 600){
+    heroBg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+  }
+}, { passive: true });
 
-  /* --- Toast --- */
-  const toastEl = document.getElementById('toast');
-  function showToast(msg, ms = 5000) {
-    toastEl.textContent = msg;
-    toastEl.classList.add('show');
-    setTimeout(() => toastEl.classList.remove('show'), ms);
+/* ── Reveal ── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -28px 0px' });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* ── Counter animation ── */
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const dur    = 1600;
+  const steps  = 40;
+  const inc    = target / steps;
+  let current  = 0;
+  const timer  = setInterval(() => {
+    current = Math.min(current + inc, target);
+    el.textContent = prefix + Math.floor(current) + suffix;
+    if(current >= target) clearInterval(timer);
+  }, dur / steps);
+}
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting && e.target.dataset.target) {
+      animateCounter(e.target);
+      counterObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+
+/* ── Toast ── */
+const toastEl = document.getElementById('toast');
+function showToast(msg, ms = 5000) {
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  setTimeout(() => toastEl.classList.remove('show'), ms);
+}
+
+/* ── Máscara telefone ── */
+const telEl = document.getElementById('whatsapp');
+telEl.addEventListener('input', function() {
+  let v = this.value.replace(/\D/g,'').slice(0,11);
+  if(v.length >= 3)  v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+  if(v.length >= 10) v = v.slice(0,9) + '-' + v.slice(9);
+  this.value = v;
+});
+
+/* ── Formulário ──
+   ═══════════════════════════════════════════════
+   PARA ATIVAR ENVIO DE EMAIL REAL:
+   1. Crie conta em emailjs.com (gratuito)
+   2. Conecte o Gmail: tudonovomoveis@gmail.com
+   3. Crie um template com as variáveis abaixo
+   4. Substitua os três valores abaixo
+
+   MODELO DO EMAIL (cole no EmailJS):
+   ───────────────────────────────────
+   Assunto: 🏠 Novo orçamento — {{nome}} · Tudo Novo Italínea
+
+   Olá, equipe Tudo Novo! 👋
+
+   Chegou uma nova solicitação de orçamento pelo site.
+
+   ━━━━━━━━━━━━━━━━━━━━━
+   📋 DADOS DO CLIENTE
+   ━━━━━━━━━━━━━━━━━━━━━
+   👤 Nome       : {{nome}}
+   📱 WhatsApp   : {{whatsapp}}
+   📧 E-mail     : {{email}}
+   🏠 Ambiente   : {{ambiente}}
+   ━━━━━━━━━━━━━━━━━━━━━
+   📝 OBSERVAÇÕES
+   ━━━━━━━━━━━━━━━━━━━━━
+   {{mensagem}}
+
+   ━━━━━━━━━━━━━━━━━━━━━
+   📅 {{data_hora}}
+   🌐 Landing Page Tudo Novo
+   ━━━━━━━━━━━━━━━━━━━━━
+   Responda ao cliente em até 24h úteis.
+   ═══════════════════════════════════════════════
+*/
+const SVC = 'SEU_SERVICE_ID';
+const TPL = 'SEU_TEMPLATE_ID';
+const KEY = 'SUA_PUBLIC_KEY';
+
+const form      = document.getElementById('formOrcamento');
+const successEl = document.getElementById('formSuccess');
+const submitBtn = document.getElementById('submitBtn');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const nome     = document.getElementById('nome').value.trim();
+  const whats    = document.getElementById('whatsapp').value.trim();
+  const email    = document.getElementById('email').value.trim();
+  const ambiente = document.getElementById('ambiente').value;
+  const msg      = document.getElementById('mensagem').value.trim();
+
+  /* Validação */
+  if(!nome || nome.length < 3){
+    showToast('Informe seu nome completo.');
+    document.getElementById('nome').focus(); return;
+  }
+  if(!whats || whats.replace(/\D/g,'').length < 10){
+    showToast('Informe um WhatsApp válido com DDD.');
+    telEl.focus(); return;
+  }
+  if(!ambiente){
+    showToast('Selecione o ambiente de interesse.');
+    document.getElementById('ambiente').focus(); return;
   }
 
-  /* --- Máscara de telefone --- */
-  const telInput = document.getElementById('whatsapp');
-  telInput.addEventListener('input', function () {
-    let v = this.value.replace(/\D/g, '').slice(0, 11);
-    if (v.length >= 3) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
-    if (v.length >= 10) v = v.slice(0,10) + '-' + v.slice(10);
-    this.value = v;
-  });
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:spin .8s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Enviando...';
+  // CSS para o spin inline
+  if(!document.getElementById('spinStyle')){
+    const s=document.createElement('style');
+    s.id='spinStyle';
+    s.textContent='@keyframes spin{to{transform:rotate(360deg)}}';
+    document.head.appendChild(s);
+  }
 
-  /* ══════════════════════════════════════════
-     FORMULÁRIO — Envio via EmailJS
-     ══════════════════════════════════════════
-     Para ativar o envio real:
-     1. Crie conta gratuita em emailjs.com
-     2. Crie um serviço Gmail conectado à tudonovomoveis@gmail.com
-     3. Crie um template com as variáveis abaixo
-     4. Substitua SERVICE_ID, TEMPLATE_ID e PUBLIC_KEY
+  const agora = new Date().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'});
 
-     Template sugerido (cole no EmailJS):
-     ─────────────────────────────────────────
-     Assunto: 🏠 Novo Orçamento — {{nome}} — Tudo Novo Móveis
-     ─────────────────────────────────────────
-     Olá, equipe Tudo Novo! 👋
-
-     Chegou uma nova solicitação de orçamento pelo site.
-     Aqui estão os dados do cliente:
-
-     ━━━━━━━━━━━━━━━━━━━━━━
-     👤 DADOS DO CLIENTE
-     ━━━━━━━━━━━━━━━━━━━━━━
-     Nome:       {{nome}}
-     WhatsApp:   {{whatsapp}}
-     E-mail:     {{email}}
-     Ambiente:   {{ambiente}}
-     ━━━━━━━━━━━━━━━━━━━━━━
-     📝 OBSERVAÇÕES DO PROJETO
-     ━━━━━━━━━━━━━━━━━━━━━━
-     {{mensagem}}
-
-     ━━━━━━━━━━━━━━━━━━━━━━
-     📅 Solicitação recebida em: {{data_hora}}
-     🌐 Origem: Landing Page — tudonovomoveis.com.br
-     ━━━━━━━━━━━━━━━━━━━━━━
-
-     Responda ao cliente em até 24h úteis.
-     Tudo Novo Italínea — Porto Alegre, RS
-     ────────────────────────────────────────────
-  */
-
-  const EMAILJS_SERVICE_ID  = 'SEU_SERVICE_ID';   // ex: 'service_abc123'
-  const EMAILJS_TEMPLATE_ID = 'SEU_TEMPLATE_ID';  // ex: 'template_xyz456'
-  const EMAILJS_PUBLIC_KEY  = 'SUA_PUBLIC_KEY';   // ex: 'AbCdEfGhIj...'
-
-  const form       = document.getElementById('formOrcamento');
-  const formBox    = document.querySelector('.form-box');
-  const successEl  = document.getElementById('formSuccess');
-  const submitBtn  = document.getElementById('submitBtn');
-
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    const nome     = document.getElementById('nome').value.trim();
-    const whats    = document.getElementById('whatsapp').value.trim();
-    const email    = document.getElementById('email').value.trim();
-    const ambiente = document.getElementById('ambiente').value;
-    const msg      = document.getElementById('mensagem').value.trim();
-
-    /* Validação */
-    if (!nome || nome.length < 3) {
-      showToast('Por favor, informe seu nome completo.');
-      document.getElementById('nome').focus(); return;
-    }
-    if (!whats || whats.replace(/\D/g,'').length < 10) {
-      showToast('Por favor, informe um WhatsApp válido com DDD.');
-      telInput.focus(); return;
-    }
-    if (!ambiente) {
-      showToast('Por favor, selecione o ambiente de interesse.');
-      document.getElementById('ambiente').focus(); return;
-    }
-
-    /* Feedback de loading */
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
-
-    const agora = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
-
-    /* Tenta EmailJS — se não configurado, fallback WhatsApp */
-    if (EMAILJS_SERVICE_ID !== 'SEU_SERVICE_ID') {
-      try {
-        /* Carrega EmailJS dinamicamente */
-        if (!window.emailjs) {
-          await new Promise((res, rej) => {
-            const s = document.createElement('script');
-            s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-            s.onload = res; s.onerror = rej;
-            document.head.appendChild(s);
-          });
-          emailjs.init(EMAILJS_PUBLIC_KEY);
-        }
-
-        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-          nome,
-          whatsapp: whats,
-          email:    email || '(não informado)',
-          ambiente,
-          mensagem: msg   || '(não informado)',
-          data_hora: agora,
+  /* Tenta EmailJS se configurado */
+  if(SVC !== 'SEU_SERVICE_ID'){
+    try{
+      if(!window.emailjs){
+        await new Promise((res,rej)=>{
+          const s=document.createElement('script');
+          s.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+          s.onload=res; s.onerror=rej;
+          document.head.appendChild(s);
         });
-
-        mostrarSucesso();
-        return;
-      } catch (err) {
-        console.warn('EmailJS falhou, usando fallback WhatsApp:', err);
+        emailjs.init(KEY);
       }
-    }
-
-    /* Fallback: abre WhatsApp com dados formatados */
-    const linhas = [
-      `Olá, equipe Tudo Novo! 👋 Vim pelo site e gostaria de solicitar um orçamento.`,
-      ``,
-      `👤 Nome: ${nome}`,
-      `📱 WhatsApp: ${whats}`,
-      ambiente ? `🏠 Ambiente: ${ambiente}` : '',
-      email    ? `📧 E-mail: ${email}`       : '',
-      msg      ? `📝 Observações: ${msg}`    : '',
-    ].filter(Boolean).join('\n');
-
-    window.open(
-      `https://wa.me/5551992681001?text=${encodeURIComponent(linhas)}`,
-      '_blank', 'noopener,noreferrer'
-    );
-
-    mostrarSucesso();
-  });
-
-  function mostrarSucesso() {
-    form.style.display = 'none';
-    successEl.style.display = 'block';
-    formBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    showToast('✓ Recebemos sua solicitação! Em breve entraremos em contato.', 7000);
+      await emailjs.send(SVC, TPL, {
+        nome, whatsapp: whats,
+        email: email||'(não informado)',
+        ambiente,
+        mensagem: msg||'(não informado)',
+        data_hora: agora,
+      });
+      mostrarSucesso(); return;
+    } catch(err){ console.warn('EmailJS falhou:',err); }
   }
+
+  /* Fallback: WhatsApp com dados formatados */
+  const txt = [
+    `Olá! 👋 Vim pelo site da Tudo Novo e gostaria de solicitar um orçamento.`,
+    ``,
+    `👤 Nome: ${nome}`,
+    `📱 WhatsApp: ${whats}`,
+    ambiente ? `🏠 Ambiente: ${ambiente}` : '',
+    email    ? `📧 E-mail: ${email}` : '',
+    msg      ? `📝 Observações: ${msg}` : '',
+  ].filter(Boolean).join('\n');
+
+  window.open(
+    `https://wa.me/5551992681001?text=${encodeURIComponent(txt)}`,
+    '_blank','noopener,noreferrer'
+  );
+  mostrarSucesso();
+});
+
+function mostrarSucesso(){
+  form.style.display = 'none';
+  successEl.style.display = 'block';
+  showToast('✓ Recebemos sua solicitação! Em breve entraremos em contato.',7000);
+}
 </script>
 
 </body>
